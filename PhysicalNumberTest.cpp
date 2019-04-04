@@ -24,6 +24,7 @@ int main() {
     PhysicalNumber b(300, Unit::M);
     PhysicalNumber c(2, Unit::HOUR);
     PhysicalNumber d(30, Unit::MIN);
+    PhysicalNumber e = b;
 
   	PhysicalNumber km(1, Unit::KM);
 		PhysicalNumber m(1, Unit::M);
@@ -41,7 +42,7 @@ int main() {
     .setname("Basic output")
     .CHECK_OUTPUT(a, "2[km]")
     .CHECK_OUTPUT(b, "300[m]")
-
+    .CHECK_OUTPUT(e, "300[m]")
     .setname("Compatible dimensions")
     .CHECK_OUTPUT(b+a, "2300[m]")
     .CHECK_OUTPUT((a+=b), "2.3[km]")
