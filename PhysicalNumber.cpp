@@ -86,12 +86,11 @@ using namespace ariel;
                 break;
             }
         }
-        if (i==10) 
+        if (i==9) 
             throw std::runtime_error("invalid input");
         return is;
     }
-    std::string ariel::PhysicalNumber::to_string(){
-        return ""+std::to_string(this->_value)+type_name[int(this->_type)];
-    }
+
+
 
 

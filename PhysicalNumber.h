@@ -42,19 +42,9 @@ namespace ariel {
 		// I/O
 		friend std::ostream& operator<<(std::ostream& os, const PhysicalNumber& other);
 		friend std::istream& operator>>(std::istream& is, PhysicalNumber& other);
-		
-		std::string to_string();
-		//private:
-		//int find_str(std::string str,const std::string a[]);
-		/*
-		// Bonus:
-		PhysicalNumber& operator/(const PhysicalNumber& other);
-		PhysicalNumber& operator* (const PhysicalNumber& other);
-		PhysicalNumber& operator*=(const PhysicalNumber& other);
-		PhysicalNumber& operator/=(const PhysicalNumber& other);
-		*/
 	};
 }
 
 
 #endif
+
