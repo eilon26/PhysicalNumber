@@ -132,7 +132,7 @@ int main() {
 
       .setname("Checkoutput [<<],[>>]")
       .CHECK_OK(istringstream("24[hour]") >> a) .CHECK_OUTPUT(a,"24[hour]") 
-      .CHECK_THROWS(istringstream("12cm]") >> b) //.CHECK_THROWS(istringstream("[cm]3") >> b) 
+      .CHECK_THROWS(istringstream("12cm]") >> b) .CHECK_THROWS(istringstream("[cm]3") >> b) 
       .setname("...")
 
       .print(cout, /*show_grade=*/false);
