@@ -81,7 +81,7 @@ using namespace ariel;
         if (!(is>>x._value))  throw std::runtime_error("invalid input");
         is >>temp_type;
         int i;
-        for(i=1;i<9;i++){
+        for(i=0;i<9;i++){
             if (temp_type.compare(type_name[i])==0){
                 x._type= Unit(i);
                 break;
