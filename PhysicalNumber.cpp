@@ -78,7 +78,8 @@ using namespace ariel;
     }
 	std::istream& ariel::operator>>(std::istream& is, PhysicalNumber& x){
         std::string temp_type;
-        is>>x._value>>temp_type;
+        if (!(is>>x._value))  throw std::runtime_error("invalid input");
+        is >>temp_type;
         int i;
         for(i=1;i<9;i++){
             if (temp_type.compare(type_name[i])==0){
