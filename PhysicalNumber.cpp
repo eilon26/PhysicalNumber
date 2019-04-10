@@ -77,8 +77,18 @@ using namespace ariel;
         return os<<x._value<<type_name[int(x._type)];
     }
 	std::istream& ariel::operator>>(std::istream& is, PhysicalNumber& x){
+        // remember place for rewinding
+        std::ios::pos_type startPosition = is.tellg();
+        
         std::string temp_type;
-        if (!(is>>x._value))  throw std::runtime_error("invalid input");
+        if (!(is>>x._value))  {
+            auto errorState = is.rdstate(); // remember error state
+            is.clear(); // clear error so seekg will work
+            is.seekg(startPosition); // rewind
+            is.clear(errorState); // set back the error flag
+            return is;
+        }//throw std::runtime_error("invalid input");
+
         is >>temp_type;
         int i;
         for(i=0;i<9;i++){
@@ -88,7 +98,14 @@ using namespace ariel;
             }
         }
         if (i==9) 
-            throw std::runtime_error("invalid input");
+        {
+            auto errorState = is.rdstate(); // remember error state
+            is.clear(); // clear error so seekg will work
+            is.seekg(startPosition); // rewind
+            is.clear(errorState); // set back the error flag
+            return is;
+        }
+            //throw std::runtime_error("invalid input");
         return is;
     }
 
