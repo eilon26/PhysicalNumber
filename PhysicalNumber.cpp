@@ -40,7 +40,8 @@ using namespace ariel;
         if ((int(x._type)/3)!=(int(y._type)/3)) return false;
         double curr_ratio = ratio[int(y._type)]/ratio[int(x._type)];
         double YNewVal = curr_ratio*y._value;
-        return (x._value==YNewVal);
+        if (x._value==YNewVal) return true;
+        else return false;
     }
     
     bool ariel::operator!=(const PhysicalNumber& x,const PhysicalNumber& y){
@@ -62,7 +63,8 @@ using namespace ariel;
         if ((int(x._type)/3)!=(int(y._type)/3)) return false;
         double curr_ratio = ratio[int(y._type)]/ratio[int(x._type)];
         double YNewVal = curr_ratio*y._value;
-        return (x._value<YNewVal);
+        if (x._value<YNewVal) return true;
+        else return false;
     }
 
     bool ariel::operator<=(const PhysicalNumber& x,const PhysicalNumber& y){
