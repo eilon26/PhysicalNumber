@@ -50,7 +50,7 @@ using namespace ariel;
     
     bool ariel::operator>(const PhysicalNumber& x,const PhysicalNumber& y){
 	if (y<x) return true;
-	else false;
+	else return false;
     }
 
     bool ariel::operator>=(const PhysicalNumber& x,const PhysicalNumber& y){
