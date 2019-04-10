@@ -37,7 +37,7 @@ using namespace ariel;
     }
 // 6 comparison operators
     bool ariel::operator==(const PhysicalNumber& x,const PhysicalNumber& y){
-        if ((int(x._type)/3)!=(int(y._type)/3)) return false;
+        if ((int(x._type)/3)!=(int(y._type)/3)) throw std::runtime_error("invalid input for comparation");
         double curr_ratio = ratio[int(y._type)]/ratio[int(x._type)];
         double YNewVal = curr_ratio*y._value;
         if (x._value==YNewVal) return true;
@@ -60,7 +60,7 @@ using namespace ariel;
     }
 
     bool ariel::operator<(const PhysicalNumber& x,const PhysicalNumber& y){
-        if ((int(x._type)/3)!=(int(y._type)/3)) return false;
+        if ((int(x._type)/3)!=(int(y._type)/3)) throw std::runtime_error("invalid input for comparation");
         double curr_ratio = ratio[int(y._type)]/ratio[int(x._type)];
         double YNewVal = curr_ratio*y._value;
         if (x._value<YNewVal) return true;
@@ -109,7 +109,7 @@ using namespace ariel;
             is.seekg(startPosition); // rewind
             is.clear(errorState); // set back the error flag
             return is;
-        }//throw std::runtime_error("invalid input");
+        }
 
         is >>temp_type;
         int i;
