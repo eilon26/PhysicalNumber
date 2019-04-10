@@ -24,12 +24,12 @@ namespace ariel {
 		const PhysicalNumber operator+() const;
 
 		// 6 comparison operators
-		friend bool operator==(const PhysicalNumber& x,const PhysicalNumber& y);// Implement at .cpp file
-		friend bool operator!=(const PhysicalNumber& x,const PhysicalNumber& y){return !(x==y);};
-		friend bool operator>(const PhysicalNumber& x,const PhysicalNumber& y){return (y<x);}
-		friend bool operator<(const PhysicalNumber& x,const PhysicalNumber& y); // Implement at .cpp file
-		friend bool operator>=(const PhysicalNumber& x,const PhysicalNumber& y){return !(x<y);}
-		friend bool operator<=(const PhysicalNumber& x,const PhysicalNumber& y){return !(x>y);};
+		friend bool operator==(const PhysicalNumber& x,const PhysicalNumber& y);
+		friend bool operator!=(const PhysicalNumber& x,const PhysicalNumber& y);
+		friend bool operator>(const PhysicalNumber& x,const PhysicalNumber& y);
+		friend bool operator<(const PhysicalNumber& x,const PhysicalNumber& y);
+		friend bool operator>=(const PhysicalNumber& x,const PhysicalNumber& y);
+		friend bool operator<=(const PhysicalNumber& x,const PhysicalNumber& y);
 
 		// Increasing and decreasing by one operators
 		// Postfix: (A--)

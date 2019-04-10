@@ -1,7 +1,6 @@
 #include "PhysicalNumber.h"
 #include <iostream>
 #include <string>
-#include <iomanip>
 
 using namespace ariel;
 // Constructors :
@@ -37,20 +36,39 @@ using namespace ariel;
         return PhysicalNumber(-1*this->_value,this->_type);
     }
 // 6 comparison operators
-	bool ariel::operator==(const PhysicalNumber& x,const PhysicalNumber& y){
+    bool ariel::operator==(const PhysicalNumber& x,const PhysicalNumber& y){
         if ((int(x._type)/3)!=(int(y._type)/3)) return false;
         double curr_ratio = ratio[int(y._type)]/ratio[int(x._type)];
         double YNewVal = curr_ratio*y._value;
         return (x._value==YNewVal);
     }
-	bool ariel::operator<(const PhysicalNumber& x,const PhysicalNumber& y){
+    
+    bool ariel::operator!=(const PhysicalNumber& x,const PhysicalNumber& y){
+	if (!(x==y)) return true;
+	else return false;
+    };
+    
+    bool ariel::operator>(const PhysicalNumber& x,const PhysicalNumber& y){
+	if (y<x) return true;
+	else false;
+    }
+
+    bool ariel::operator>=(const PhysicalNumber& x,const PhysicalNumber& y){
+	if (!(x<y)) return true;
+	else return false;
+    }
+
+    bool ariel::operator<(const PhysicalNumber& x,const PhysicalNumber& y){
         if ((int(x._type)/3)!=(int(y._type)/3)) return false;
         double curr_ratio = ratio[int(y._type)]/ratio[int(x._type)];
         double YNewVal = curr_ratio*y._value;
         return (x._value<YNewVal);
     }
 
-
+    bool ariel::operator<=(const PhysicalNumber& x,const PhysicalNumber& y){
+	if (!(x>y)) return true;
+	else return false;
+    }
 // Increasing and decreasing by one operators
 	// Postfix: (A--)
     const PhysicalNumber PhysicalNumber::operator++(int){
