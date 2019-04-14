@@ -24,12 +24,12 @@ namespace ariel {
 		const PhysicalNumber operator+() const;
 
 		// 6 comparison operators
-		friend bool operator==(const PhysicalNumber& x,const PhysicalNumber& y);
-		friend bool operator!=(const PhysicalNumber& x,const PhysicalNumber& y);
-		friend bool operator>(const PhysicalNumber& x,const PhysicalNumber& y);
-		friend bool operator<(const PhysicalNumber& x,const PhysicalNumber& y);
-		friend bool operator>=(const PhysicalNumber& x,const PhysicalNumber& y);
-		friend bool operator<=(const PhysicalNumber& x,const PhysicalNumber& y);
+		bool operator==(const PhysicalNumber& x)const;
+		bool operator!=(const PhysicalNumber& x)const;
+		bool operator>(const PhysicalNumber& x)const;
+		bool operator<(const PhysicalNumber& x)const;
+		bool operator>=(const PhysicalNumber& x)const;
+		bool operator<=(const PhysicalNumber& x)const;
 
 		// Increasing and decreasing by one operators
 		// Postfix: (A--)
@@ -43,6 +43,9 @@ namespace ariel {
 		friend std::ostream& operator<<(std::ostream& os, const PhysicalNumber& other);
 		friend std::istream& operator>>(std::istream& is, PhysicalNumber& other);
 	};
+	//friend function declaration 
+	std::ostream& operator<<(std::ostream& os, const PhysicalNumber& other);
+	std::istream& operator>>(std::istream& is, PhysicalNumber& other);
 }
 
 

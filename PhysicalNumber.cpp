@@ -36,39 +36,39 @@ using namespace ariel;
         return PhysicalNumber(-1*this->_value,this->_type);
     }
 // 6 comparison operators
-    bool ariel::operator==(const PhysicalNumber& x,const PhysicalNumber& y){
-        if ((int(x._type)/3)!=(int(y._type)/3)) throw std::runtime_error("invalid input for comparation");
-        double curr_ratio = ratio[int(y._type)]/ratio[int(x._type)];
-        double YNewVal = curr_ratio*y._value;
-        if (x._value==YNewVal) return true;
+    bool PhysicalNumber::operator==(const PhysicalNumber& x)const{
+        if ((int(this->_type)/3)!=(int(x._type)/3)) throw std::runtime_error("invalid input for comparation");
+        double curr_ratio = ratio[int(x._type)]/ratio[int(this->_type)];
+        double YNewVal = curr_ratio*x._value;
+        if (this->_value==YNewVal) return true;
         else return false;
     }
     
-    bool ariel::operator!=(const PhysicalNumber& x,const PhysicalNumber& y){
-	if (!(x==y)) return true;
+    bool PhysicalNumber::operator!=(const PhysicalNumber& x)const{
+	if (!(*this==x)) return true;
 	else return false;
     };
     
-    bool ariel::operator>(const PhysicalNumber& x,const PhysicalNumber& y){
-	if (y<x) return true;
+    bool PhysicalNumber::operator>(const PhysicalNumber& x)const{
+	if (x < *this) return true;
 	else return false;
     }
 
-    bool ariel::operator>=(const PhysicalNumber& x,const PhysicalNumber& y){
-	if (!(x<y)) return true;
+    bool PhysicalNumber::operator>=(const PhysicalNumber& x)const{
+	if (!(*this<x)) return true;
 	else return false;
     }
 
-    bool ariel::operator<(const PhysicalNumber& x,const PhysicalNumber& y){
-        if ((int(x._type)/3)!=(int(y._type)/3)) throw std::runtime_error("invalid input for comparation");
-        double curr_ratio = ratio[int(y._type)]/ratio[int(x._type)];
-        double YNewVal = curr_ratio*y._value;
-        if (x._value<YNewVal) return true;
+    bool PhysicalNumber::operator<(const PhysicalNumber& x)const{
+        if ((int(this->_type)/3)!=(int(x._type)/3)) throw std::runtime_error("invalid input for comparation");
+        double curr_ratio = ratio[int(x._type)]/ratio[int(this->_type)];
+        double YNewVal = curr_ratio*x._value;
+        if (this->_value < YNewVal) return true;
         else return false;
     }
 
-    bool ariel::operator<=(const PhysicalNumber& x,const PhysicalNumber& y){
-	if (!(x>y)) return true;
+    bool PhysicalNumber::operator<=(const PhysicalNumber& x)const{
+	if (!(*this>x)) return true;
 	else return false;
     }
 // Increasing and decreasing by one operators
